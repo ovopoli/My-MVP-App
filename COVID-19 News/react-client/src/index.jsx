@@ -27,7 +27,7 @@ class App extends React.Component {
 
   render () {
     return (<div>
-      <h1>COVID-19 News</h1>
+      <h1>COVID-19 News Now</h1>
       <News items={this.state.items}/>
     </div>)
   }
