@@ -5,11 +5,12 @@ const newsapi = new NewsAPI('INSERT_API_HERE');
 
 const News = (props) => (
   <div>
-    <h4> Latest News </h4>
     <div>
-      <button>Get Latest News Now</button>
+      <button onClick>Get Latest News Now</button>
     </div>
+    <div>
 
+    </div>
     There are { props.items.length } new articles.
     { props.items.map(item => <NewsItems item={item}/>)}
   </div>
