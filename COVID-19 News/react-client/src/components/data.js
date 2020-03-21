@@ -1,0 +1,1 @@
+//this is going to hold static data information to test routing in news component
