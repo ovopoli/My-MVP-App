@@ -24,12 +24,13 @@ class App extends React.Component {
     this.loadNew = this.loadNew.bind(this);
   }
 
+  
   componentDidMount() {
         axios.get('http://localhost:3000/home',)
-        .then((data) => {
-          this.setState({ items: data });
-          console.log(data);
-          console.log('HERE IS THE STATE:', this.state.items);
+        .then((response) => {
+          console.log("data----", response.data);
+          this.setState({ items: response.data.articles });
+          console.log('HERE IS THE STATE:----', this.state.items);
         })
         .catch((err) =>
         console.log(err)
@@ -41,7 +42,8 @@ class App extends React.Component {
   }
 
   render () {
-    return (<div>
+    return (
+    <div>
       <h1>COVID-19 News Now</h1>
       <News 
       loadNew={this.loadNew}

@@ -10,8 +10,8 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 
 app.get('/home', (req, res) => {
     //res.send(req.data)
-    console.log('this is req', req);
-    console.log('this is res', res);
+    // console.log('this is req', req);
+    // console.log('this is res', res);
     axios.get('http://newsapi.org/v2/everything?q=corona virus',{headers: { 'X-Api-Key': process.env.NEWS_API_KEY }})
     .then(function(response) {
       res.send(response.data)
