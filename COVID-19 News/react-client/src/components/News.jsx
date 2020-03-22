@@ -10,16 +10,17 @@ const API_URL = 'http://newsapi.org/v2/everything';
 const News = (props) => (
   <div>
     <div>
+    There are { props.items.length } new articles
+    </div>
+    <div>
       <button onClick={props.loadNew}>Get Latest News Now</button>
     </div>
-      <div>
-      
-      </div>
     <div>
-
+      Articles:
     </div>
-    There are { props.items.length } new articles.
-    { props.items.map(item => <NewsItems item={item}/>)}
+    <div>
+      { props.items.map(item => <NewsItems item={item}/>)}
+    </div>
   </div>
 )
 
