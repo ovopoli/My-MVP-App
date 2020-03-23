@@ -1,7 +1,5 @@
 import React from 'react';
 import NewsItems from './NewsItems.jsx';
-const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('INSERT_API_HERE');
 const API_URL = 'http://newsapi.org/v2/everything';
 
 
@@ -19,7 +17,11 @@ const News = (props) => (
       Articles:
     </div>
     <div>
-      { props.items.map(item => <NewsItems item={item}/>)}
+      { props.items.map((item, i) => 
+      <NewsItems 
+        key={i}
+        item={item}
+      />)}
     </div>
   </div>
 )

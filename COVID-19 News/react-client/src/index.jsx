@@ -27,10 +27,8 @@ class App extends React.Component {
   
   componentDidMount() {
         axios.get('http://localhost:3000/home',)
-        .then((response) => {
-          console.log("data----", response.data);
+        .then((response) => {         
           this.setState({ items: response.data.articles });
-          console.log('HERE IS THE STATE:----', this.state.items);
         })
         .catch((err) =>
         console.log(err)
