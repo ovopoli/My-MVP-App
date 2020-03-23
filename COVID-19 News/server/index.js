@@ -1,19 +1,39 @@
+// const webpackDevServer = require('webpack-dev-server');
+// const webpack = require('webpack');
+
+// // const config = require('./webpack.config.js');
+// // const options = {
+// //   contentBase: './dist',
+// //   hot: true,
+// //   host: 'localhost',
+// // };
+
+// webpackDevServer.addDevServerEntrypoints(config, options);
+// const compiler = webpack(config);
+// const server = new webpackDevServer(compiler, options);
+
+  // const PORT = process.env.PORT || 3000;
+  // app.listen(PORT, () => {
+  //     console.log(`Our app is running on port ${ PORT }`);
+  // });
+
+
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var items = require('../database-mysql');
 require('dotenv').config({ path: 'variables.env' });
 var app = express();
-//var Pusher = require('pusher');
+// //var Pusher = require('pusher');
 const axios = require('axios');
 const cors = require('cors')
 
 app.use(express.static(__dirname + '/../react-client/dist'));
 app.use(cors());
-
 app.get('/home', (req, res) => {
-    //res.send(req.data)
-    // console.log('this is req', req);
-    // console.log('this is res', res);
+    res.send(req.data)
+    console.log('this is req', req);
+    console.log('this is res', res);
     axios.get('http://newsapi.org/v2/everything?q=corona virus',{headers: { 'X-Api-Key': process.env.NEWS_API_KEY }})
     .then(function(response) {
       res.send(response.data)
@@ -23,10 +43,6 @@ app.get('/home', (req, res) => {
       console.log(error)
     })
   })
-
-
-
-
 
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
