@@ -26,7 +26,7 @@ class App extends React.Component {
 
   
   componentDidMount() {
-        axios.get('http://localhost:3000/home',)
+        axios.get('https://covid-19-news.herokuapp.com/',)
         .then((response) => {         
           this.setState({ items: response.data.articles });
         })

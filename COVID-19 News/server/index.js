@@ -5,8 +5,10 @@ require('dotenv').config({ path: 'variables.env' });
 var app = express();
 //var Pusher = require('pusher');
 const axios = require('axios');
+const cors = require('cors')
 
 app.use(express.static(__dirname + '/../react-client/dist'));
+app.use(cors());
 
 app.get('/home', (req, res) => {
     //res.send(req.data)
@@ -26,8 +28,9 @@ app.get('/home', (req, res) => {
 
 
 
-  app.listen(3000, function() {
-    console.log('listening on port 3000!');
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+      console.log(`Our app is running on port ${ PORT }`);
   });
 
 
